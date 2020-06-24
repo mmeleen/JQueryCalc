@@ -84,9 +84,16 @@ $(".btn-success").on("click",function(){
         answer = firstNumber*secondNumber;
     }
 
+    //Division
     if(finalOperator === "÷"){
 
         answer = firstNumber/secondNumber;
+    }
+
+    //Power
+    if(finalOperator === "^"){
+
+        answer = Math.pow(firstNumber,secondNumber);
     }
     
 
