@@ -65,10 +65,30 @@ $(".btn-success").on("click",function(){
 
     //Calculate
 
+    //Addition
     if(finalOperator === "+"){
 
         answer = firstNumber + secondNumber;
     }
+
+    //Subtraction
+    if(finalOperator === "-"){
+
+        answer = firstNumber - secondNumber;
+    }
+
+
+    //Multiplication
+    if(finalOperator === "x"){
+
+        answer = firstNumber*secondNumber;
+    }
+
+    if(finalOperator === "÷"){
+
+        answer = firstNumber/secondNumber;
+    }
+    
 
     $("#result").text(answer);
 
