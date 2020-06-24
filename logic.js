@@ -19,7 +19,7 @@ $(".btn-primary").on("click",function(){
 
         }
 
-        if(indicator != 0){
+        if(indicator === 1){
 
         //Append number to the second display
         $("#second-number").append(number);
@@ -55,6 +55,8 @@ $(".btn-success").on("click",function(){
 
     //Get operator text
     var answer = 0;
+    indicator = 2; 
+    
     var firstNumber = $("#first-number").text();
 
     firstNumber = parseInt(firstNumber);
