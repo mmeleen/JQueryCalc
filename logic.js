@@ -10,11 +10,16 @@ var finalOperator = '';
 //Number button Clicked
 $(".btn-primary").on("click",function(){
 
+    if(indicator ===3){
+
+        $("#result").empty();
+        indicator = 0;
+    }
     
     //get the text of that button
     var number = $(this).text();
     
-        if(indicator === 0 || indicator === 3){
+        if(indicator === 0){
 
         //Append number to the first display
         $("#first-number").append(number);
@@ -49,17 +54,19 @@ $(".btn-danger").on("click",function(){
         if(indicator ===0) {
 
             indicator = 1; 
+
+        //Get operator text
+         var operator = $(this).text();
+
+         //Display operator text 
+        $("#operator").text(operator);
         }
         
 
     
     
 
-    //Get operator text
-    var operator = $(this).text();
-
-    //Display operator text 
-    $("#operator").text(operator);
+   
 
 });
 
