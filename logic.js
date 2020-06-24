@@ -83,15 +83,24 @@ $(".btn-success").on("click",function(){
 
         answer = firstNumber + secondNumber;
     }
-
+    clear();
     $("#result").text(answer);
 
 });
 
-///Clear
+///Clear click
 $(".btn-dark").on("click",function(){
     indicator = 0;
     $("#first-number").empty();
     $("#second-number").empty();
     $("#operator").empty();
+    $("#result").empty();
 });
+
+///Clear function
+function clear() {
+    indicator = 0;
+    $("#first-number").empty();
+    $("#second-number").empty();
+    $("#operator").empty();
+}
