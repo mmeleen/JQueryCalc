@@ -52,16 +52,24 @@ $(".btn-danger").on("click",function(){
 ////Equal
 $(".btn-success").on("click",function(){
 
-    
 
     //Get operator text
+    var answer = 0;
     var firstNumber = $("#first-number").text();
+
+    firstNumber = parseInt(firstNumber);
     var secondNumber = $("#second-number").text();
+
+    secondNumber = parseInt(secondNumber);
     var finalOperator = $("#operator").text();
 
-    //Display operator text 
-    console.log(firstNumber);
-    console.log(secondNumber);
-    console.log(finalOperator);
+    //Calculate
+
+    if(finalOperator === "+"){
+
+        answer = firstNumber + secondNumber;
+    }
+
+    $("#result").text(answer);
 
 });
