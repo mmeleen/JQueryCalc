@@ -10,10 +10,11 @@ var finalOperator = '';
 //Number button Clicked
 $(".btn-primary").on("click",function(){
 
+    
     //get the text of that button
     var number = $(this).text();
     
-        if(indicator === 0){
+        if(indicator === 0 || indicator === 3){
 
         //Append number to the first display
         $("#first-number").append(number);
@@ -21,7 +22,7 @@ $(".btn-primary").on("click",function(){
         //Save the number
         firstNumber = $("#first-number").text();
 
-        
+        indicator = 0;
 
         }
 
@@ -44,7 +45,15 @@ $(".btn-primary").on("click",function(){
 $(".btn-danger").on("click",function(){
 
     //Change indicator so that the next number will display on second line
-    indicator = 1; 
+
+        if(indicator ===0) {
+
+            indicator = 1; 
+        }
+        
+
+    
+    
 
     //Get operator text
     var operator = $(this).text();
@@ -73,18 +82,26 @@ $(".btn-success").on("click",function(){
     if(finalOperator === "+"){
 
         answer = firstNumber + secondNumber;
-    } else if(finalOperator === "-"){
+    } 
+    if(finalOperator === "-"){
 
         answer = firstNumber - secondNumber;
-    } else if(finalOperator === "*"){
+    } 
+    if(finalOperator === "x"){
 
-        answer = firstNumber + secondNumber;
-    } else if(finalOperator === "+"){
+        answer = firstNumber*secondNumber;
+    } 
+    if(finalOperator === "÷"){
 
-        answer = firstNumber + secondNumber;
+        answer = firstNumber/secondNumber;
     }
-    clear();
+    if(finalOperator === "^"){
+        answer = Math.pow(firstNumber,secondNumber);
+    }
+
     $("#result").text(answer);
+    clear();
+   
 
 });
 
@@ -99,7 +116,7 @@ $(".btn-dark").on("click",function(){
 
 ///Clear function
 function clear() {
-    indicator = 0;
+    indicator = 3;
     $("#first-number").empty();
     $("#second-number").empty();
     $("#operator").empty();
