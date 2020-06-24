@@ -1,5 +1,11 @@
 //Initialize all needed variables
 var indicator = 0;
+var answer = 0;
+var firstNumber = '';
+
+var secondNumber = '';
+
+var finalOperator = '';
 
 //Number button Clicked
 $(".btn-primary").on("click",function(){
@@ -27,7 +33,6 @@ $(".btn-primary").on("click",function(){
         //Save the number
         secondNumber = $("#second-number").text();
 
-        
 
         }
 
@@ -52,53 +57,41 @@ $(".btn-danger").on("click",function(){
 ////Equal
 $(".btn-success").on("click",function(){
 
-
+    indicator = 2;
     //Get operator text
-    var answer = 0;
-    indicator = 2; 
-    
-    var firstNumber = $("#first-number").text();
+    answer = 0;
+    firstNumber = $("#first-number").text();
 
     firstNumber = parseInt(firstNumber);
-    var secondNumber = $("#second-number").text();
+    secondNumber = $("#second-number").text();
 
     secondNumber = parseInt(secondNumber);
-    var finalOperator = $("#operator").text();
+    finalOperator = $("#operator").text();
 
     //Calculate
 
-    //Addition
     if(finalOperator === "+"){
+
+        answer = firstNumber + secondNumber;
+    } else if(finalOperator === "-"){
+
+        answer = firstNumber - secondNumber;
+    } else if(finalOperator === "*"){
+
+        answer = firstNumber + secondNumber;
+    } else if(finalOperator === "+"){
 
         answer = firstNumber + secondNumber;
     }
 
-    //Subtraction
-    if(finalOperator === "-"){
-
-        answer = firstNumber - secondNumber;
-    }
-
-
-    //Multiplication
-    if(finalOperator === "x"){
-
-        answer = firstNumber*secondNumber;
-    }
-
-    //Division
-    if(finalOperator === "÷"){
-
-        answer = firstNumber/secondNumber;
-    }
-
-    //Power
-    if(finalOperator === "^"){
-
-        answer = Math.pow(firstNumber,secondNumber);
-    }
-    
-
     $("#result").text(answer);
 
+});
+
+///Clear
+$(".btn-dark").on("click",function(){
+    indicator = 0;
+    $("#first-number").empty();
+    $("#second-number").empty();
+    $("#operator").empty();
 });
